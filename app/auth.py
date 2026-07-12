@@ -1,6 +1,9 @@
 """认证工具：密码哈希、JWT 签发与校验"""
 from datetime import datetime, timedelta
-from zoneinfo import ZoneInfo
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from backports.zoneinfo import ZoneInfo
 
 import bcrypt
 from jose import JWTError, jwt
