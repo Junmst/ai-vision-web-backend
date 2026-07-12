@@ -1,7 +1,7 @@
 """AI 服务抽象层"""
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Optional
+from typing import List, Optional
 import json
 import re
 
@@ -10,7 +10,7 @@ import re
 class AIResult:
     """AI 分析统一返回结构"""
     description: str = ""       # 图片描述
-    tags: list[str] = None      # 关键词标签
+    tags: Optional[List[str]] = None      # 关键词标签
     scene: str = ""             # 场景识别
     prompt: str = ""            # Prompt 反推
     raw_response: str = ""      # 原始响应（调试用）

@@ -1,4 +1,6 @@
 """AI 配置 CRUD 路由"""
+from typing import List
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -29,7 +31,7 @@ def create_config(
     return config
 
 
-@router.get("", response_model=list[AIConfigOut])
+@router.get("", response_model=List[AIConfigOut])
 def list_configs(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),

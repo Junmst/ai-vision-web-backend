@@ -1,6 +1,7 @@
 """图片上传与管理路由"""
 import os
 import uuid
+from typing import List
 import aiofiles
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 from sqlalchemy.orm import Session
@@ -50,7 +51,7 @@ async def upload_image(
     return img
 
 
-@router.get("", response_model=list[ImageOut])
+@router.get("", response_model=List[ImageOut])
 def list_images(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),

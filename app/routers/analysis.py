@@ -1,4 +1,6 @@
 """AI 分析路由"""
+from typing import List
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -37,7 +39,7 @@ async def create_analysis(
         raise HTTPException(status_code=500, detail=f"AI 分析失败：{e}")
 
 
-@router.get("", response_model=list[AnalysisOut])
+@router.get("", response_model=List[AnalysisOut])
 def list_analyses(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
