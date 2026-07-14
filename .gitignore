@@ -5,9 +5,6 @@ backend/venv/
 backend/.venv/
 **/*.pyc
 **/__pycache__/
-backend/**/*.pyc
-backend/**/__pycache__/
-
 backend/.pytest_cache/
 backend/.mypy_cache/
 backend/data/*.db
@@ -16,4 +13,8 @@ backend/*.log
 backend/server*.log
 *.tmp
 .env
-
+venv/
+.pytest_cache/
+data/*.db
+data/uploads/
+*.log
